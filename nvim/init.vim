@@ -27,6 +27,7 @@ Plug 'honza/vim-snippets'
 Plug 'sbdchd/neoformat'
 Plug 'chrisbra/Colorizer'
 Plug 'skywind3000/vim-terminal-help'
+Plug 'codota/tabnine-vim'
 
 " Initialize plugin system
 call plug#end()
@@ -110,8 +111,6 @@ set background=dark
 " Available values: 'hard', 'medium'(default), 'soft'
 let g:gruvbox_material_background = 'hard'
 colorscheme gruvbox-material
-
-let g:polyglot_disabled = ['kotlin']
 
 " 键位设置
 " 查看键位冲突  :verbose imap <C-H>
