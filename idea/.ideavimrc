@@ -1,0 +1,146 @@
+" 显示当前模式
+set showmode
+" 共享系统粘贴板
+set clipboard+=unnamed
+" 打开行号
+set number
+" 打开相对行号
+set relativenumber
+" 设置命令历史记录条数
+set history=1000
+" 关闭兼容vi
+set nocompatible
+" 开启语法高亮功能
+syntax enable
+" 允许用指定语法高亮配色方案替换默认方案
+syntax on
+" 模式搜索实时预览,增量搜索
+set incsearch
+" 设置搜索高亮
+set hlsearch
+" 忽略大小写 (该命令配合smartcase使用较好，否则不要开启)
+set ignorecase
+" 模式查找时智能忽略大小写
+set smartcase
+" vim自身命令行模式智能补全
+set wildmenu
+" 总是显示状态栏
+set laststatus=2
+" 显示光标当前位置
+set ruler
+" 高亮显示当前行/列
+set cursorline
+"set cursorcolumn
+" 禁止折行
+set nowrap
+" 将制表符扩展为空格
+set expandtab
+" 设置编辑时制表符占用空格数
+set tabstop=8
+" 设置格式化时制表符占用空格数
+set shiftwidth=4
+" 让 vim 把连续数量的空格视为一个制表符
+set softtabstop=4
+" 基于缩进或语法进行代码折叠
+set foldmethod=indent
+set foldmethod=syntax
+" 启动 vim 时关闭折叠代码
+set nofoldenable
+
+" 设置前导键
+let mapleader=" "
+" 暂时取消搜索高亮快捷键
+" nnoremap <silent> <Leader><Leader>l :<C-u>nohlsearch<CR><C-l>
+nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
+nnoremap <BackSpace> :nohl<cr>
+" 快速ESC, 灰常好用
+inoremap jk <esc>
+" V模式下代码移动
+vnoremap J :action MoveLineDown<CR>
+vnoremap K :action MoveLineUp<CR>
+vnoremap < <gv
+vnoremap > >gv
+
+
+" 文件操作相关
+" 定义快捷键关闭当前分割窗口
+nmap <Leader>q :q<CR>
+
+" 窗口操作相关
+" 我映射了Ctrl + hjkl 为方向键,但是nomal模式下,我并不需要这套组合
+" 于是我把nomal模式下的方向键, 映射给了原本需要ctrl+方向键的映射
+" 上下:标签切换 左右:窗口切换
+" nnoremap <Up>        gT
+" nnoremap <Down>      gt
+" nnoremap <Left>      <C-W>h
+" nnoremap <Right>     <C-W>l
+noremap <c-h> <C-w>h
+noremap <c-j> <C-w>j
+noremap <c-k> <C-w>k
+noremap <c-l> <C-w>l
+" inoremap <c-h> <Nop>
+
+" 插入模式下的一些快捷键
+inoremap <c-h> <esc>I
+inoremap <c-l> <esc>A
+
+" 使用idea内部功能
+" find action
+nmap <Leader>a :action GotoAction<CR>
+vmap <Leader>a :action GotoAction<CR>
+nmap <Leader>e :action SearchEverywhere<CR>
+vmap <Leader>e :action SearchEverywhere<CR>
+" reformat code
+nnoremap <Leader><Leader>f :action ReformatCode<CR>
+" 找到usage
+nnoremap <Leader>u :action FindUsages<CR>
+" go to class
+nnoremap <Leader>gc :action GotoClass<CR>
+" go to action
+nnoremap <Leader>ga :action GotoAction<CR>
+" 显示当前文件的文件路径
+nnoremap <Leader>p :action ShowFilePath<CR>
+" 隐藏激活窗口
+nnoremap <Leader>h :action HideActiveWindow<CR>
+" 重命名
+nnoremap <Leader>r :action RenameElement<CR>
+" 优化导包
+nnoremap <Leader>o :action OptimizeImports<CR>
+" surround with ?
+vnoremap <Leader>s :action SurroundWith<CR>
+" 拷贝应用
+nnoremap <Leader>c :action CopyReference<CR>
+" 中英文自动切换
+set keep-english-in-normal-and-restore-in-insert
+nnoremap <Leader>; :action ActivateTerminalToolWindow<CR>
+
+" other vim plugins
+" comment plugin
+set commentary
+" surround plugin
+set surround
+" easymotion
+set easymotion
+" multi cursor
+set multiple-cursors
+" exchange
+set exchange
+" highlightedyank
+set highlightedyank
+let g:highlightedyank_highlight_duration = "1000"
+
+" <Leader>f search in line
+map  <Leader>f <Plug>(easymotion-lineanywhere)
+
+" s{char}{char} to move to {char}{char}
+nmap <leader>s <Plug>(easymotion-s2)
+nmap <Leader>l <Plug>(easymotion-bd-jk)
+" Move to word
+nmap <Leader>w <Plug>(easymotion-e)
+nmap <Leader>b <Plug>(easymotion-ge)
+
+" 一些有用的快捷键，但是没做映射
+" open project file tree ---------- alt + 1
+" open terminal window   ---------- alt + F12
+
+nnoremap <Leader><Leader>s :source ~/.ideavimrc<CR>
