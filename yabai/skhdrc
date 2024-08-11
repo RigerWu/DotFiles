@@ -6,8 +6,12 @@
 # hyper (cmd + shift + alt + ctrl)
 # meh (shift + alt + ctrl)
 
+# restart yabai config
+hyper - r : yabai --restart-service
+
 # focus display
 hyper - u : yabai -m display --focus 1
+hyper - i : yabai -m window --opacity 0.1 && sleep $(yabai -m config window_opacity_duration) && yabai -m window --opacity 0.0
 hyper - o : yabai -m display --focus 2
 
 
@@ -29,10 +33,12 @@ alt - left : yabai -m window --swap west
 alt - right : yabai -m window --swap east
 alt - down : yabai -m window --swap south
 alt - up : yabai -m window --swap north
+hyper - h : index="$(yabai -m query --displays | jq 'map(select(."has-focus" == false))[-1].index')" && \
+            yabai -m window --display "${index}" && \
+            yabai -m display --focus "${index}"
 
 
 alt - f : yabai -m window --toggle float
-shift + alt - f: yabai -m space --layout bsp
 alt - s : yabai -m window --toggle split
 
 
