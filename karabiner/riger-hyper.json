@@ -1,0 +1,55 @@
+{
+  "title": "Riger's hyper key mapping rule",
+  "rules": [
+    {
+      "description": "单按是tab,按住映射成command+option+control+shift",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "tab"
+          },
+          "to": [
+            {
+              "repeat": true,
+              "key_code": "left_shift",
+              "modifiers": ["left_command", "left_option", "left_control"],
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "repeat": true,
+              "key_code": "tab"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "单按是f18,按住映射成command+option+control",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f18"
+          },
+          "to": [
+            {
+              "repeat": true,
+              "key_code": "left_option",
+              "modifiers": ["left_command", "left_control"],
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "repeat": true,
+              "key_code": "f18"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

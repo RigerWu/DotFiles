@@ -1,0 +1,110 @@
+{
+  "title": "适合vim使用的中英文切换方案",
+  "rules": [
+    {
+      "description": "非英文输入法情况下,按ESC,会多按一下F18",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "input_sources": [
+                {
+                  "language": "zh-Hans"
+                }
+              ],
+              "type": "input_source_if"
+            }
+          ],
+          "from": {
+            "key_code": "escape"
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "f18"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "短按左shift切换输入法,短按左command英文,短按右command英文",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_shift"
+          },
+          "to": [
+            {
+              "key_code": "left_shift",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "f18"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "input_sources": [
+                {
+                  "language": "zh-Hans"
+                }
+              ],
+              "type": "input_source_if"
+            }
+          ],
+          "from": {
+            "key_code": "left_command"
+          },
+          "to": [
+            {
+              "key_code": "left_command",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "f18"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "input_sources": [
+                {
+                  "language": "zh-Hans"
+                }
+              ],
+              "type": "input_source_unless"
+            }
+          ],
+          "from": {
+            "key_code": "right_command"
+          },
+          "to": [
+            {
+              "key_code": "right_command",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "f18"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
