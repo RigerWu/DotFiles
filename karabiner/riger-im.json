@@ -1,5 +1,5 @@
 {
-  "title": "适合vim使用的中英文切换方案",
+  "title": "适合vim使用的中英文切换方案(切换快捷键F18)",
   "rules": [
     {
       "description": "非英文输入法情况下,按ESC,会多按一下F18",
@@ -31,7 +31,7 @@
       ]
     },
     {
-      "description": "短按左shift切换输入法,短按左command英文,短按右command英文",
+      "description": "短按左shift切换输入法,短按左command英文,短按右command中文",
       "manipulators": [
         {
           "type": "basic",
