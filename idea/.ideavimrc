@@ -55,11 +55,13 @@ nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
 nnoremap <BackSpace> :nohl<cr>
 " 快速ESC, 灰常好用
 inoremap jk <esc>
+inoremap jj <esc>
 " V模式下代码移动
 vnoremap J :action MoveLineDown<CR>
 vnoremap K :action MoveLineUp<CR>
 vnoremap < <gv
 vnoremap > >gv
+map Q gq
 
 
 " 文件操作相关
@@ -78,11 +80,35 @@ noremap <c-h> <C-w>h
 noremap <c-j> <C-w>j
 noremap <c-k> <C-w>k
 noremap <c-l> <C-w>l
-" inoremap <c-h> <Nop>
+
+" 自带的导航操作体验更好
+map <c-o> :action Back<CR>
+map <c-i> :action Forward<CR>
 
 " 插入模式下的一些快捷键
 inoremap <c-h> <esc>I
 inoremap <c-l> <esc>A
+
+" 优化选中粘贴体验
+vnoremap p "_dP
+
+map U <Action>($Redo)
+
+nmap ma mA
+nmap 'a 'A
+nmap ms mS
+nmap 's 'S
+nmap md mD
+nmap 'd 'D
+nmap mf mF
+nmap 'f 'F
+nmap mj mJ
+nmap 'j 'J
+nmap mk mK
+nmap 'k 'K
+nmap ml mL
+nmap 'l 'L
+
 
 " 使用idea内部功能
 " find action
@@ -90,16 +116,12 @@ nmap <Leader>a :action GotoAction<CR>
 vmap <Leader>a :action GotoAction<CR>
 nmap <Leader>e :action SearchEverywhere<CR>
 vmap <Leader>e :action SearchEverywhere<CR>
-" reformat code
-nnoremap <Leader><Leader>f :action ReformatCode<CR>
 " 找到usage
 nnoremap <Leader>u :action FindUsages<CR>
-" go to class
-nnoremap <Leader>gc :action GotoClass<CR>
-" go to action
-nnoremap <Leader>ga :action GotoAction<CR>
+" 显示当前文件Structure
+map <Leader>p <Action>(FileStructurePopup)
 " 显示当前文件的文件路径
-nnoremap <Leader>p :action ShowFilePath<CR>
+nnoremap <Leader><Leader>p :action ShowFilePath<CR>
 " 隐藏激活窗口
 nnoremap <Leader>h :action HideActiveWindow<CR>
 " 重命名
@@ -110,9 +132,12 @@ nnoremap <Leader>o :action OptimizeImports<CR>
 vnoremap <Leader>s :action SurroundWith<CR>
 " 拷贝应用
 nnoremap <Leader>c :action CopyReference<CR>
-" 中英文自动切换
-set keep-english-in-normal-and-restore-in-insert
+" 打开终端
 nnoremap <Leader>; :action ActivateTerminalToolWindow<CR>
+" Git Blame
+nnoremap <Leader>g :action Annotate<CR>
+" 切换最近Git分支，需要安装GitToolBox插件
+nnoremap <Leader><Leader>r :action GitToolBox.SwitchRecentBranches<CR>
 
 " other vim plugins
 " comment plugin
@@ -128,19 +153,14 @@ set exchange
 " highlightedyank
 set highlightedyank
 let g:highlightedyank_highlight_duration = "1000"
+set NERDTree
+map <c-p> :NERDTree<CR>
 
 " <Leader>f search in line
-map  <Leader>f <Plug>(easymotion-lineanywhere)
-
+map f <Plug>(easymotion-lineanywhere)
 " s{char}{char} to move to {char}{char}
-nmap <leader>s <Plug>(easymotion-s2)
+nmap s <Plug>(easymotion-s2)
 nmap <Leader>l <Plug>(easymotion-bd-jk)
 " Move to word
 nmap <Leader>w <Plug>(easymotion-e)
 nmap <Leader>b <Plug>(easymotion-ge)
-
-" 一些有用的快捷键，但是没做映射
-" open project file tree ---------- alt + 1
-" open terminal window   ---------- alt + F12
-
-nnoremap <Leader><Leader>s :source ~/.ideavimrc<CR>
