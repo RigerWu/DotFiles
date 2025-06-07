@@ -138,6 +138,8 @@ nnoremap <Leader>; :action ActivateTerminalToolWindow<CR>
 nnoremap <Leader>g :action Annotate<CR>
 " 切换最近Git分支，需要安装GitToolBox插件
 nnoremap <Leader><Leader>r :action GitToolBox.SwitchRecentBranches<CR>
+" 得自己设置一个快捷键
+nnoremap <Leader>v <A-S-V>
 
 " other vim plugins
 " comment plugin
@@ -156,11 +158,10 @@ let g:highlightedyank_highlight_duration = "1000"
 set NERDTree
 map <c-p> :NERDTree<CR>
 
-" <Leader>f search in line
+" easymotion actions
 map f <Plug>(easymotion-lineanywhere)
-" s{char}{char} to move to {char}{char}
 nmap s <Plug>(easymotion-s2)
+nmap S <Plug>(easymotion-jumptoanywhere)
 nmap <Leader>l <Plug>(easymotion-bd-jk)
-" Move to word
 nmap <Leader>w <Plug>(easymotion-e)
 nmap <Leader>b <Plug>(easymotion-ge)
