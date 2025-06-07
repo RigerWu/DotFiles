@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Error>
-  <Code>NoSuchKey</Code>
-  <Message>The specified key does not exist.</Message>
-  <RequestId>5F50558D5B2D1C3337981294</RequestId>
-  <HostId>doutula-oss.oss-cn-hongkong.aliyuncs.com</HostId>
-  <Key>production/uploads/image/2016/12/29/20161229025446_zeDian.jpg</Key>
-</Error>

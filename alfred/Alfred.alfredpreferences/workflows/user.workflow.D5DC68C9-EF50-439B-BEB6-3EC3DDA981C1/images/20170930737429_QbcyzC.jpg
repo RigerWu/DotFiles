@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Error>
-  <Code>NoSuchKey</Code>
-  <Message>The specified key does not exist.</Message>
-  <RequestId>5F8806DD9EB6B23533ECFC12</RequestId>
-  <HostId>img.doutula.com</HostId>
-  <Key>production/uploads/image/2017/09/30/20170930737429_QbcyzC.jpg</Key>
-</Error>

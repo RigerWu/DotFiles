@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<workflow>
-  <name>alfred-ocr</name>
-  <version>4.9</version>
-  <bundle>com.chandler.alfredocr</bundle>
-  <updated>1610013858</updated>
-  <file>capture_then_ocr.alfredworkflow</file>
-</workflow>

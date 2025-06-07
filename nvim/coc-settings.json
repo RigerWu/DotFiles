@@ -1,4 +1,0 @@
-{
-  "explorer.icon.enableNerdfont": true,
-  "coc.preferences.formatOnSaveFiletypes": ["json", "markdown", "yaml"]
-}
