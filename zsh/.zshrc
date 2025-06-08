@@ -157,7 +157,7 @@ eval "$(pyenv init -)"
 export MAVEN_HOME="/Users/riger/Dev/tools/maven/apache-maven-3.9.9"
 export PATH=$PATH:$MAVEN_HOME/bin
 
-# brew install nvm
+# https://github.com/nvm-sh/nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
