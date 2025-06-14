@@ -1,0 +1,4 @@
+[flavor]
+# ya pkg add yazi-rs/flavors:catppuccin-mocha
+dark = "catppuccin-mocha"
+light = "catppuccin-mocha"

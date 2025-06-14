@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -113,12 +106,12 @@ source $ZSH/oh-my-zsh.sh
 # https://github.com/alibaba/arthas/releases
 alias arthas="/Users/riger/Dev/tools/arthas-bin/as.sh"
 
-# brew install powerlevel10k
-source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+# brew install starship
+# starship preset catppuccin-powerline -o ~/.config/starship.toml
+eval "$(starship init zsh)"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
+# brew install zoxide
+eval "$(zoxide init zsh)"
 
 # completion using arrow keys (based on history)
 bindkey '^[[A' history-search-backward
@@ -129,33 +122,32 @@ source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # brew install autojump
 [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
-# speed up download
-export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
-export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
-export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
-export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
-export HOMEBREW_PIP_INDEX_URL="https://pypi.tuna.tsinghua.edu.cn/simple"
 
 # alias
 # brew install neovim
 alias vi="nvim"
+export EDITOR="nvim"
 # brew install jesseduffield/lazygit/lazygit
 alias lg="lazygit"
 # brew install trash
-alias rm="trash"
+alias rmt="trash"
 
 # brew install fzf
 source <(fzf --zsh)
 
-# brew install pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# uv
+# curl -LsSf https://astral.sh/uv/install.sh | sh
+. "$HOME/.local/bin/env"
+# global uv env
+source ~/Dev/tools/python/.venv/bin/activate
 
 # maven https://maven.apache.org/download.cgi
 # mkdir -p ~/Dev/tools/maven/
 export MAVEN_HOME="/Users/riger/Dev/tools/maven/apache-maven-3.9.9"
 export PATH=$PATH:$MAVEN_HOME/bin
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/riger/.lmstudio/bin"
 
 # https://github.com/nvm-sh/nvm
 export NVM_DIR="$HOME/.nvm"
@@ -171,3 +163,13 @@ export JAVA_21_HOME="$(/usr/libexec/java_home -v 21)"
 alias jdk8='export JAVA_HOME=$JAVA_8_HOME'
 alias jdk21='export JAVA_HOME=$JAVA_21_HOME'
 export JAVA_HOME=$JAVA_8_HOME
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# yazi
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
