@@ -23,12 +23,12 @@ $conda\
 [](fg:sapphire bg:lavender)\
 $time\
 [ ](fg:lavender)\
-$cmd_duration\
 $line_break\
 $character"""
 
-# delete for I hava a global pythone env
+# delete items
 # $python\
+# $cmd_duration\
 
 palette = 'catppuccin_mocha'
 
