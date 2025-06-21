@@ -131,6 +131,8 @@ export EDITOR="nvim"
 alias lg="lazygit"
 # brew install trash
 alias rmt="trash"
+# brew install fastfetch
+alias s="fastfetch"
 
 # brew install fzf
 source <(fzf --zsh)
@@ -139,7 +141,7 @@ source <(fzf --zsh)
 # curl -LsSf https://astral.sh/uv/install.sh | sh
 . "$HOME/.local/bin/env"
 # global uv env
-source ~/Dev/tools/python/.venv/bin/activate
+# source ~/Dev/tools/python/.venv/bin/activate
 
 # maven https://maven.apache.org/download.cgi
 # mkdir -p ~/Dev/tools/maven/
@@ -157,12 +159,6 @@ export NVM_DIR="$HOME/.nvm"
 # https://3.jetbra.in/
 ___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
 
-# https://www.azul.com/downloads/?os=macos&architecture=arm-64-bit&package=jdk-fx#zulu
-export JAVA_8_HOME="$(/usr/libexec/java_home -v 1.8)"
-export JAVA_21_HOME="$(/usr/libexec/java_home -v 21)"
-alias jdk8='export JAVA_HOME=$JAVA_8_HOME'
-alias jdk21='export JAVA_HOME=$JAVA_21_HOME'
-export JAVA_HOME=$JAVA_8_HOME
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # yazi
@@ -173,3 +169,7 @@ function y() {
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
 }
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
