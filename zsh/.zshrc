@@ -120,8 +120,6 @@ bindkey '^[[B' history-search-forward
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # brew install zsh-syntax-highlighting
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# brew install autojump
-[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
 # alias
 # brew install neovim
@@ -148,8 +146,6 @@ source <(fzf --zsh)
 export MAVEN_HOME="/Users/riger/Dev/tools/maven/apache-maven-3.9.9"
 export PATH=$PATH:$MAVEN_HOME/bin
 
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/riger/.lmstudio/bin"
 
 # https://github.com/nvm-sh/nvm
 export NVM_DIR="$HOME/.nvm"
@@ -161,7 +157,7 @@ ___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_V
 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# yazi
+# brew install yazi ffmpeg sevenzip jq poppler fd ripgrep fzf zoxide resvg imagemagick font-symbols-only-nerd-font
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	yazi "$@" --cwd-file="$tmp"
