@@ -20,4 +20,5 @@ pnp.polacode
 pranaygp.vscode-css-peek
 ritwickdey.liveserver
 streetsidesoftware.code-spell-checker
+vscodevim.vim
 vue.volar
