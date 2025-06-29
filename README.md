@@ -30,6 +30,9 @@ cp -r ~/DotFiles/nvim ~/.config/nvim
 cp -r ~/DotFiles/kitty ~/.config/kitty
 cp -r ~/DotFiles/wezterm ~/.config/wezterm
 cp -f ~/DotFiles/starship/starship.toml ~/.config/starship.toml
+
+# 安装vscode插件
+cat vscode-extensions.txt | xargs -L 1 code --install-extension
 # ... 根据需要安装其他配置
 ```
 
